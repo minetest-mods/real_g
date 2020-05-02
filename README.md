@@ -1,2 +1,3 @@
 # real_g
-Minetest mod for real-world gravity
+
+Minetest mod that creates an imatation of real-world gravity.
