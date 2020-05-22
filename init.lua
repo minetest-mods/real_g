@@ -8,7 +8,6 @@ level, max gravity at sea level.
 
 local update = function()
 	for _, players in ipairs(minetest.get_connected_players()) do
-	    local player = minetest.get_player_by_name("singleplayer")
 	    local pos = player:get_pos()
 	    local grav = 1
 	    if pos.y > 300 then grav = 300/pos.y end
