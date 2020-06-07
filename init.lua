@@ -16,11 +16,9 @@ local update = function()
 	end
 end
 
-local gravity_timer = 0
 local action_timer = 0
 
 local function gravity_globaltimer(dtime)
-	gravity_timer = gravity_timer + dtime
 	action_timer = action_timer + dtime
 
 	if action_timer > 4 then
