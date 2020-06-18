@@ -5,24 +5,24 @@ level, max gravity at sea level.
 
 ]]--
 
+local action_timer = 0
+local realgthres=minetest.settings:get('real_g_threshold') or 300
 
-local update = function()
+local gravity_update = function()
 	for _, players in ipairs(minetest.get_connected_players()) do
-	    local pos = player:get_pos()
+	    local pos = players:get_pos()
 	    local grav = 1
-	    if pos.y > 300 then grav = 300/pos.y end
-	    if pos.y < -300 then grav = -300/pos.y end
-	    player:set_physics_override({gravity=grav})
+	    if abs(pos.y) > realgthres then grav = abs(realgthres/pos.y) end
+	    players:set_physics_override({gravity=grav})
 	end
 end
 
-local action_timer = 0
 
 local function gravity_globaltimer(dtime)
 	action_timer = action_timer + dtime
 
 	if action_timer > 4 then
-		update()
+		gravity_update()
 		action_timer = 0
 	end
 end
