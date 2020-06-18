@@ -12,8 +12,7 @@ local gravity_update = function()
 	for _, players in ipairs(minetest.get_connected_players()) do
 	    local pos = players:get_pos()
 	    local grav = 1
-	    if pos.y > realgthres then grav = realgthres/pos.y end
-	    if pos.y < (-1)*realgthres then grav = -1*realgthres/pos.y end
+	    if abs(pos.y) > realgthres then grav = abs(realgthres/pos.y) end
 	    players:set_physics_override({gravity=grav})
 	end
 end
