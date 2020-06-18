@@ -1,0 +1,1 @@
+real_g_threshold (Threshold for activating real_g) int 300
