@@ -1,8 +1,13 @@
 --[[
+Copyright (C) 2020 squiddible and contributors
+This project is licensed under the MIT license.
+
+See https://mit-license.org/ for more information.
+
+--------------------------------------------------
 
 Lowers gravity the higher (and lower) you get above (or below) sea
 level, max gravity at sea level.
-
 ]]--
 
 local action_timer = 0
@@ -17,7 +22,6 @@ local gravity_update = function()
 	end
 end
 
-
 local function gravity_globaltimer(dtime)
 	action_timer = action_timer + dtime
 
@@ -28,4 +32,3 @@ local function gravity_globaltimer(dtime)
 end
 
 minetest.register_globalstep(gravity_globaltimer)
-
